@@ -1,0 +1,50 @@
+*A:bng01.clt103# oam host-connectivity-verify subscriber "AD51924782590001"
+==============================================================================
+Triggering host connectivity verify for sub-ident AD51924782590001 ...
+Waiting 3 seconds ...
+
+===============================================================================
+Host connectivity check statistics
+===============================================================================
+SvcId   SapId/SdpId           HostIp
+  DestIp                                            MAC
+    Oper      Last-reply/Conn-lost
+-------------------------------------------------------------------------------
+1       [lag-131:403.2012]    136.57.162.178
+  136.57.162.178                                    f4:f5:e8:7d:d1:c7
+    -         -
+1       [lag-131:403.2012]    2605:a600:1d44:15c2::1/128
+  2605:a600:1d44:15c2::1                            f4:f5:e8:7d:d1:c7
+    -         -
+1       [lag-131:403.2012]    2605:a601:a195:bf00::/56
+  fe80::f6f5:e8ff:fe7d:d1c7                         f4:f5:e8:7d:d1:c7
+    -         -
+-------------------------------------------------------------------------------
+3 host-connectivity states : 0 Up / 0 Down / 3 Retry pending
+===============================================================================
+- indicates that host-connectivity-check retries are pending
+*A:bng01.clt103# oam host-connectivity-verify subscriber "AD23405133960001"
+==============================================================================
+Triggering host connectivity verify for sub-ident AD23405133960001 ...
+Waiting 3 seconds ...
+
+===============================================================================
+Host connectivity check statistics
+===============================================================================
+SvcId   SapId/SdpId           HostIp
+  DestIp                                            MAC
+    Oper      Last-reply/Conn-lost
+-------------------------------------------------------------------------------
+1       [lag-131:407.2006]    136.57.169.132
+  136.57.169.132                                    7c:2e:bd:9c:20:d2
+    -         -
+1       [lag-131:407.2006]    2605:a600:1d40:ead::1/128
+  2605:a600:1d40:ead::1                             7c:2e:bd:9c:20:d2
+    -         -
+1       [lag-131:407.2006]    2605:a601:a10e:a500::/56
+  fe80::7e2e:bdff:fe9c:20d2                         7c:2e:bd:9c:20:d2
+    -         -
+-------------------------------------------------------------------------------
+3 host-connectivity states : 0 Up / 0 Down / 3 Retry pending
+===============================================================================
+- indicates that host-connectivity-check retries are pending
