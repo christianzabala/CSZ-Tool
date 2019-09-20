@@ -51,7 +51,7 @@ def main():
 
 
 def IDs():
-    """Generate oam host command from a list of Address IDs"""
+    """Generate OAM command from a list of Address IDs"""
 
     add = "0001"
     oam = "oam host-connectivity-verify subscriber "
@@ -61,7 +61,7 @@ def IDs():
 
     result = []
 
-    print("Paste Customers Address IDs(ex: AD0123456789)for OAM Host-Connectivity then press ENTER then hit Ctrl+C "
+    print("Paste Customers Address IDs for the OAM Command then press ENTER then hit Ctrl+C "
           "when done :\n>")
     # (ctrl+f2 in pycharm)
     while True:
@@ -178,7 +178,7 @@ def PING2():
 
 
 def MSAP():
-    """open a file that has LAG-IDs on it then generate a clear service command"""
+    """open a file that has LAG-IDs on it then generate a clear service id Command"""
 
     result = []
     final_list = []
@@ -223,8 +223,8 @@ def MSAP():
 
 
 def DupID():
-    """open a file that has consolidated network elements from different PONLOS or CPE-LOS then return a result
-    without a duplicate network element """
+    """open a file that has consolidated network elements from different outage tickets then the script will return 
+    a result without a duplicate network element """
 
     final_list = []
 
