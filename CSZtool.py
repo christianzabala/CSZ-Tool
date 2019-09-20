@@ -7,7 +7,7 @@ Move customers, and etc., that needs to know the customers IP address & LAG-IDs 
 LAG-IDs. This script also includes a auto-ping an IP addresses listed on a text file and an option to remove a
 duplicate network element when a multiple tickets needs a unique network element only. """
 
-__author__ = 'zabalac@google.com'
+__author__ = 'christian.philip.zabala@gmail.com'
 
 import sys  # for using sys.exit command to quit/logout of the application
 import subprocess  # for the ping process
@@ -71,7 +71,7 @@ def IDs():
         except KeyboardInterrupt:
             break
 
-    ndlist = "\n".join(result)
+    ndlist = "\n".join(result)  #To remove duplicates
     ndlist = ndlist.splitlines()
 
     print("\n" + "=" * 85)
@@ -79,7 +79,7 @@ def IDs():
     print(len(ndlist))
     print("=" * 85)
 
-    print("\n# Copy and paste the commands below the line on BNG to know the lag id of the CXs\n")
+    print("\n# Copy and paste the commands below the line on BNG to know the LAG-ID of the CXs\n")
     print("=" * 85)
     for i in ndlist:
         oam_cmd = sp + oam + quotation + i + add + quotation + nl
@@ -89,12 +89,12 @@ def IDs():
 
 
 def PING():
-    """Input or paste a list of IP addresses and auto-ping it"""
+    """Input or paste a list of IP addresses to have it auto-ping the IP address"""
 
     result = []
     ip_count = []
 
-    print("Paste All IP address then press ENTER then hit Ctrl+C when done :\n>")
+    print("Paste All IP address then press ENTER then hit Ctrl+C when done :\n>") #Enter is needed to have the last IP included 
     while True:
         try:
             line = input(" \n")
@@ -102,7 +102,7 @@ def PING():
         except KeyboardInterrupt:
             break
 
-    ndlist = "\n".join(result)
+    ndlist = "\n".join(result)  #To remove duplicates
     ndlist = ndlist.splitlines()
 
     print("\n" + "=" * 85)
@@ -113,9 +113,9 @@ def PING():
             print("\nPing to", address, "is OK \n")
             ip_count.append(res)
         elif res == 2:
-            print("\nno response from", address, "\n")
+            print("\nNo response from", address, "\n")
         else:
-            print("\nping to", address, "failed! \n")
+            print("\nPing to", address, "failed! \n")
 
     print("\n" + "=" * 85)
     print("Total IP Address inputted: ", len(ndlist))
@@ -133,7 +133,7 @@ def PING2():
     ip_count = []
     no_ip = []
 
-    file_name = input("Enter a filename(Case Sensitive, include .txt): ")
+    file_name = input("Enter a filename(Case Sensitive, include file type ex: .txt): ")
     while (not os.path.isfile(file_name)) or (not os.path.exists(file_name)):
         file_name = input("File not found in the directory, Try again: ")
 
@@ -152,7 +152,7 @@ def PING2():
         if num not in final_list:
             final_list.append(num)
 
-    ndlist = "\n".join(final_list)
+    ndlist = "\n".join(final_list)  #To remove duplicates
     ndlist = ndlist.splitlines()
 
     print("=" * 85)
@@ -186,7 +186,7 @@ def MSAP():
     clear = "clear service id 1 msap "
     nl = "\n"
 
-    file_name = input("Enter a filename(Case Sensitive, include .txt): ")
+    file_name = input("Enter a filename(Case Sensitive, include file type ex: .txt): ")
     while (not os.path.isfile(file_name)) or (not os.path.exists(file_name)):
         file_name = input("File not found in the directory, Try again: ")
 
@@ -205,14 +205,14 @@ def MSAP():
         if num not in final_list:
             final_list.append(num)
 
-    ndlist = "\n".join(final_list)
+    ndlist = "\n".join(final_list)  #To remove duplicates
     ndlist = ndlist.splitlines()
 
     print("=" * 85)
-    print("Total Number of Lag IDs: ", len(ndlist))
-    print("Total Address IDs on the file that have NO lag IDs: ", len(no_ip))
+    print("Total Number of LAG-IDs: ", len(ndlist))
+    print("Total Address IDs on the file that have NO LAG-IDs: ", len(no_ip))
     print("=" * 85)
-    print('\n# Copy the commands below and paste it on BNG to Clear the Lag IDs of the CXs\n')
+    print('\n# Copy the commands below and paste it on BNG to Clear the LAG-IDs of the CXs\n')
     print("=" * 85)
 
     for i in ndlist:
@@ -228,7 +228,7 @@ def DupID():
 
     final_list = []
 
-    file_name = input("Enter a filename(Case Sensitive, include .txt): ")
+    file_name = input("Enter a filename(Case Sensitive, include file type ex: .txt): ")
     while (not os.path.isfile(file_name)) or (not os.path.exists(file_name)):
         file_name = input("File not found in the directory, Try again: ")
 
@@ -240,7 +240,7 @@ def DupID():
         for cxid in match:
             if cxid not in final_list:
                 final_list.append(cxid)
-    ndlist = "\n".join(final_list)
+    ndlist = "\n".join(final_list)  #To remove duplicates
     ndlist = ndlist.splitlines()
     l_to_s = ", ".join(ndlist)
 
