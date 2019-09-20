@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# CSZ Tool (Code for Scraping files to Zero human error)
+# CSZ Tool (CODE for SCRAPING files to ZERO human error)
 
 """This tool or script can be used to simplify the troubleshooting issues like fiber cut, maintenances:1x32 splitter,
 Move customers, and etc., that needs to know the customers IP address & LAG-IDs and then do a clear MSAP for all
