@@ -1,5 +1,5 @@
 # !/usr/bin/python
-# super quick script to convert circuit id to adtran indexes for reboot
+# A Script to convert circuit id to adtran indexes for reboot
 
 import sys
 
@@ -17,7 +17,7 @@ def main():
     emptylist = []
 
     print(
-        'Paste Adtran circuits (olt01.nuq222 1/1/18/7/2), it will be converted to Adtran ONT index for reloading ont, hit Ctrl-C when done :\n>')
+        'Paste Adtran circuits (olt##.xxx### 1/1/2/3/4), it will be converted to Adtran ONT index for reloading ont, hit Ctrl-C when done :\n>')
     while True:
         try:
             line = input('')
