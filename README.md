@@ -18,21 +18,21 @@ Possible Future revisions:
  Download the python script(CSZtool.py), Open it on a terminal by typing "python3 CSZtool.py"or change the file to an excutable file to just input the ./CSZtool.py
  ![Menu](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p1.jpg)
  
- Option #1:
+ **Option #1:**
  - Paste the Customers Address IDs on the terminal(Ctrl+Shift+V) , then press ENTER(For the script to be able to read the last line or the last input address id) and hit Ctrl+C
   ![Option1a](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p3.jpg)
   Copy all the result and paste it on the BNG where the customer is connected.
   ![Option1b](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p4.jpg)  
- Option #2:
+ **Option #2:**
  -  Input or paste a list of IP addresses to auto-ping it
   ![Option2](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p5.jpg)  
- Option #3:
+ **Option #3:**
  -  Open a file that has IP addresses for the script to gather the total IP address and auto-ping it
   ![Option3a](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p6.jpg)
   ![Option3b](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p7.jpg) 
- Option #4:
+ **Option #4:**
  -  Open a file that has LAG-IDs on it then generate a clear service command
   ![Option4](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p8.jpg)
- Option #5:
+ **Option #5:**
  -  Open a file that has consolidated network elements from outage tickets then return a result without a duplicate network element
   ![Option5](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p9.jpg)
