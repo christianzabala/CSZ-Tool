@@ -25,16 +25,20 @@
   ![Option1a](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p3.jpg)
   Copy all the result and paste it on the BNG where the customer is connected.
   ![Option1b](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p4.jpg)  
+  
  **Option #2:**
  -  Input or paste a list of IP addresses to auto-ping it
   ![Option2](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p5.jpg)  
+  
  **Option #3:**
  -  Open a file that has IP addresses for the script to gather the total IP address and auto-ping it
   ![Option3a](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p6.jpg)
   ![Option3b](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p7.jpg) 
+  
  **Option #4:**
  -  Open a file that has LAG-IDs on it then generate a clear service command
   ![Option4](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p8.jpg)
+  
  **Option #5:**
  -  Open a file that has consolidated network elements from outage tickets then return a result without a duplicate network element
   ![Option5](https://github.com/christianzabala/CSZ-Tool/blob/master/Sample-Pics/p9.jpg)
