@@ -1,4 +1,5 @@
-# CSZ-Tool ((**C**ode for **S**craping files to **Z**ero human error)
+# CSZ-Tool 
+(**C**ode for **S**craping files to **Z**ero human error)
 
 **Overview**
 - This is a simple python script that automatically generate a OAM command for a NOKIA BNG for the process of showing a LAG ID, IP addresses and clearing the MSAP of a user connected on the BNG during the events when a customer was moved to a different OLT.  
