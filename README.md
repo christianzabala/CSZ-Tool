@@ -4,7 +4,7 @@
 - This script also looks(by sraping a file)  for IP address(IPv4 only) that will auto ping those IPs(without duplicate IPs) then return the result of the ping test to know what are the devices that are still down or has no IP address yet. 
 - This script also has a duplicate network element(Customer port on the OLT) remover, script will only show unique network elements on a file.
 
-**Note:** - The Script still requires some manual work since it doesn't not contain any Package or module to allow the script to ssh on a device since currently there are restrictions on my job role.
+**Note:**  The Script still requires some manual work since it doesn't not contain any Package or module to allow the script to ssh on a device since currently there are restrictions on my job role.
 
 Possible Future revisions:
  1. Include a module to ssh on a network device then send specific commands needed. Perhaps make it multithreaded 
