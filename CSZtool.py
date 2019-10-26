@@ -71,7 +71,7 @@ def IDs():
         except KeyboardInterrupt:
             break
 
-    ndlist = "\n".join(result)  #To remove duplicates
+    ndlist = "\n".join(result)  
     ndlist = ndlist.splitlines()
 
     print("\n" + "=" * 85)
@@ -102,7 +102,7 @@ def PING():
         except KeyboardInterrupt:
             break
 
-    ndlist = "\n".join(result)  #To remove duplicates
+    ndlist = "\n".join(result)  
     ndlist = ndlist.splitlines()
 
     print("\n" + "=" * 85)
@@ -148,11 +148,11 @@ def PING2():
                 noips = match1.group(0)
                 no_ip.append(noips)
 
-    for num in result:
+    for num in result:                  
         if num not in final_list:
             final_list.append(num)
 
-    ndlist = "\n".join(final_list)  #To remove duplicates
+    ndlist = "\n".join(final_list)  
     ndlist = ndlist.splitlines()
 
     print("=" * 85)
@@ -205,7 +205,7 @@ def MSAP():
         if num not in final_list:
             final_list.append(num)
 
-    ndlist = "\n".join(final_list)  #To remove duplicates
+    ndlist = "\n".join(final_list)  
     ndlist = ndlist.splitlines()
 
     print("=" * 85)
@@ -240,7 +240,7 @@ def DupID():
         for cxid in match:
             if cxid not in final_list:
                 final_list.append(cxid)
-    ndlist = "\n".join(final_list)  #To remove duplicates
+    ndlist = "\n".join(final_list)  
     ndlist = ndlist.splitlines()
     l_to_s = ", ".join(ndlist)
 
