@@ -28,20 +28,22 @@ def main():
                       3: Ping IPs that is on a file
                       4: Search LAG IDs on a file for clearing MSAP
                       5: For removing duplicate network element
+                      6: Find the different network element between two files(Ticket)
                       Q: Quit/Log Out
-
                       Please enter your choice: """)
 
     if choice == "1":
-        IDs()
+        ids()
     elif choice == "2":
-        PING()
+        ping()
     elif choice == "3":
-        PING2()
+        ping2()
     elif choice == "4":
-        MSAP()
+        msap()
     elif choice == "5":
-        DupID()
+        dup_id()
+    elif choice == "6":
+        diff_ne()
     elif choice == "Q" or choice == "q":
         sys.exit()
     else:
@@ -50,7 +52,7 @@ def main():
         main()
 
 
-def IDs():
+def ids():
     """Generate OAM command from a list of Address IDs"""
 
     add = "0001"
@@ -61,17 +63,17 @@ def IDs():
 
     result = []
 
-    print("Paste Customers Address IDs for the OAM Command then press ENTER then hit Ctrl+C "
+    print("Paste Customers Address IDs for the OAM Command then hit Ctrl+C "
           "when done :\n>")
-    # (ctrl+f2 in pycharm)
+
     while True:
         try:
             line = input("")
-            result.append(line)
-        except KeyboardInterrupt:
+            result.append(line + "\n")
+        except KeyboardInterrupt:  # Ctrl+F2 in pycharm
             break
 
-    ndlist = "\n".join(result)  
+    ndlist = "\n".join(result)
     ndlist = ndlist.splitlines()
 
     print("\n" + "=" * 85)
@@ -88,26 +90,35 @@ def IDs():
     main()
 
 
-def PING():
+def ping():
     """Input or paste a list of IP addresses to have it auto-ping the IP address"""
 
     result = []
+    ip = []
     ip_count = []
 
-    print("Paste All IP address then press ENTER then hit Ctrl+C when done :\n>") #Enter is needed to have the last IP included 
+    print(
+        "Paste All IP address then hit Ctrl+C when done :\n>")  # Enter is needed to have the last IP included
     while True:
         try:
-            line = input(" \n")
-            result.append(line)
+            line = input("")
+            result.append(line + "\n")
         except KeyboardInterrupt:
             break
 
-    ndlist = "\n".join(result)  
+    ndlist = "\n".join(result)
     ndlist = ndlist.splitlines()
+
+    for line in ndlist:
+        line1 = str(line)
+        match = re.search(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b", line1)  # regex to find IP addresses
+        if match:
+            ips = match.group(0)
+            ip.append(ips)
 
     print("\n" + "=" * 85)
     print("Ping Results: \n")
-    for address in ndlist:
+    for address in ip:
         res = subprocess.call(["ping", "-c", "3", address])
         if res == 0:
             print("\nPing to", address, "is OK \n")
@@ -118,14 +129,14 @@ def PING():
             print("\nPing to", address, "failed! \n")
 
     print("\n" + "=" * 85)
-    print("Total IP Address inputted: ", len(ndlist))
+    print("Total IP Address inputted: ", len(ip))
     print("Total IP Address that is pingable: ", len(ip_count))
-    print("Total IP Address that can't be ping: ", len(ndlist) - len(ip_count))
+    print("Total IP Address that can't be ping: ", len(ip) - len(ip_count))
     print("\n" + "=" * 85)
     main()
 
 
-def PING2():
+def ping2():
     """open a file that has IP addresses on it then gather the total IP address and auto-ping it"""
 
     result = []
@@ -148,11 +159,11 @@ def PING2():
                 noips = match1.group(0)
                 no_ip.append(noips)
 
-    for num in result:                  
+    for num in result:
         if num not in final_list:
             final_list.append(num)
 
-    ndlist = "\n".join(final_list)  
+    ndlist = "\n".join(final_list)
     ndlist = ndlist.splitlines()
 
     print("=" * 85)
@@ -177,7 +188,7 @@ def PING2():
     main()
 
 
-def MSAP():
+def msap():
     """open a file that has LAG-IDs on it then generate a clear service id Command"""
 
     result = []
@@ -205,7 +216,7 @@ def MSAP():
         if num not in final_list:
             final_list.append(num)
 
-    ndlist = "\n".join(final_list)  
+    ndlist = "\n".join(final_list)
     ndlist = ndlist.splitlines()
 
     print("=" * 85)
@@ -222,8 +233,8 @@ def MSAP():
     main()
 
 
-def DupID():
-    """open a file that has consolidated network elements from different outage tickets then the script will return 
+def dup_id():
+    """open a file that has consolidated network elements from different outage tickets then the script will return
     a result without a duplicate network element """
 
     final_list = []
@@ -240,7 +251,8 @@ def DupID():
         for cxid in match:
             if cxid not in final_list:
                 final_list.append(cxid)
-    ndlist = "\n".join(final_list)  
+
+    ndlist = "\n".join(final_list)
     ndlist = ndlist.splitlines()
     l_to_s = ", ".join(ndlist)
 
@@ -251,6 +263,47 @@ def DupID():
     print("=" * 85)
     print(l_to_s)
     print("=" * 85)
+    main()
+
+
+def diff_ne():
+    """open two files that has network elements from different outage tickets then the script will return
+    a result on the different network elements between the tickets"""
+
+    file_name1 = input("Enter a filename(Case Sensitive, include file type ex: .txt): ")
+    while (not os.path.isfile(file_name1)) or (not os.path.exists(file_name1)):
+        file_name1 = input("File not found in the directory, Try again: ")
+
+    file_name2 = input("Enter a filename(Case Sensitive, include file type ex: .txt): ")
+    while (not os.path.isfile(file_name2)) or (not os.path.exists(file_name2)):
+        file_name2 = input("File not found in the directory, Try again: ")
+
+    with open(file_name1, "r") as file1, open(file_name2, "r") as file2:
+        file1 = file1.readlines()
+        file2 = file2.readlines()
+
+        st1 = "".join(file1)
+        match1 = re.split(", |,|\n", st1)
+        st2 = "".join(file2)
+        match2 = re.split(", |,|\n", st2)
+
+        difference = set(match1).symmetric_difference(match2)  # difference on both files
+
+        # Compare file 1 to file 2
+        element2 = set(difference).intersection(match1)
+        l_to_s2 = ", ".join(element2)
+        print("=" * 85 + "\nNetwork Elements that file 1 has but file 2 doesn't have:")
+        print("=" * 85)
+        print(l_to_s2)
+        print("=" * 85)
+
+        # Compare file 2 to file 1
+        element1 = set(difference).intersection(match2)
+        l_to_s1 = ", ".join(element1)
+        print("=" * 85 + "\nNetwork Elements that file 2 has but file 1 doesn't have::")
+        print("=" * 85)
+        print(l_to_s1)
+        print("=" * 85)
     main()
 
 
