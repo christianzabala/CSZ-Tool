@@ -10,7 +10,7 @@
 
 **Possible Future revisions:**
  1. Include a module to ssh on a network device then send specific commands needed. Perhaps make it multithreaded 
- 2. Concert the codes to a class that can be reused on future projects
+ 2. Convert the codes to a class that can be reused on future projects
  3. Add more Exception and Error Handling
  4. Detect what Address ID that has no IP address
  5. Option to show what are the duplicate network elements and network elements that don't have any duplicates.
