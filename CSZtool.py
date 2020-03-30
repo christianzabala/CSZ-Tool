@@ -69,7 +69,7 @@ def ids():
     while True:
         try:
             line = input("")
-            result.append(line + "\n")
+            result.append(line)
         except KeyboardInterrupt:  # Ctrl+F2 in pycharm
             break
 
